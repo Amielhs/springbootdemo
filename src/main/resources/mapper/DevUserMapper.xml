@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amielhs.springbootdemo.dao.DevUserMapper">
+
+    <!--根据devCode获取用户记录-->
+    <select id="getLoginUser" parameterType="String" resultType="DevUser">
+        SELECT `u`.* FROM `dev_user` `u`
+        <where>
+            <if test="devCode!=null">
+                AND `devCode` = #{devCode}
+            </if>
+        </where>
+    </select>
+
+</mapper>
